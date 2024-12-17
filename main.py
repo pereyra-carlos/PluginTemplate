@@ -15,8 +15,9 @@ class PluginTemplate(PluginBase):
 
         ## Launch backend
         print("antes")
-        backend_path = os.path.join(self.PATH, "backend", "backend.py") 
-        self.launch_backend(backend_path=backend_path, open_in_terminal=True) 
+        #backend_path = os.path.join(self.PATH, "backend", "backend.py") 
+        #self.launch_backend(backend_path=backend_path, open_in_terminal=True) 
+        self.launch_backend(os.path.join(self.PATH, "backend", "backend.py"), os.path.join(self.PATH, "backend", ".venv"), open_in_terminal=False)
         print("despues")
 
         ## Register actions

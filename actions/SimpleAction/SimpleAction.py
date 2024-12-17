@@ -31,12 +31,9 @@ class SimpleAction(ActionBase):
 
     def on_ready(self):
         self.current_state = -1
-        # Connect to obs if not connected
+        
         if self.plugin_base.backend is not None:
             self.plugin_base.get_count()
-                
-        
-        
         
     # def on_key_down(self) -> None:
     #     self.set_center_label(str(self.value), font_size=30)
