@@ -1,9 +1,9 @@
 {
     "generic": {
-        "copyright": "",
-        "original-url": "",
-        "license": "",
-        "license-url": "",
-        "description": ""
+        "copyright": "carper",
+        "original-url": "free.com.ar",
+        "license": "lic. open source",
+        "license-url": "https://licence.com.ar",
+        "description": "test"
     }
 }
