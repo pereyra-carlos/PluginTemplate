@@ -9,6 +9,12 @@ class PluginTemplate(PluginBase):
     def __init__(self):
         super().__init__()
 
+        print("launch backend")
+        backend_path = os.path.join(self.plugin_base.PATH, "actions", "SimpleAction", "backend", "backend.py") 
+        print("backend launched")
+
+        self.launch_backend(backend_path=backend_path, open_in_terminal=True)
+
         ## Register actions
         self.simple_action_holder = ActionHolder(
             plugin_base = self,

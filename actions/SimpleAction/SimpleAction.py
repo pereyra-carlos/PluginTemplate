@@ -28,7 +28,10 @@ class SimpleAction(ActionBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        backend_path = os.path.join(self.plugin_base.PATH, "actions", "SimpleAction", "backend", "backend.py") 
+        print("launch backend")
+        backend_path = os.path.join(self.plugin_base.PATH, "actions", "SimpleAction", "backend", "backend.py", open_in_terminal=False) 
+        print("backend launched")
+
         self.launch_backend(backend_path=backend_path, open_in_terminal=True)
         
     def on_ready(self) -> None:
