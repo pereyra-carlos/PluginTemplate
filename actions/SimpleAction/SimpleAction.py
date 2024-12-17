@@ -92,4 +92,5 @@ class SimpleAction(ActionBase):
             return
 
         self.set_center_label(letter)
+        self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "Thumbnail1.png"))
     
