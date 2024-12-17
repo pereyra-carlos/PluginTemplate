@@ -6,6 +6,8 @@ from src.backend.PluginManager.PluginBase import PluginBase
 
 # Import python modules
 import os
+import string
+import random
 
 # Import gtk modules - used for the config rows
 import gi
@@ -22,6 +24,12 @@ class SimpleAction(ActionBase):
         self.set_media(media_path=icon_path, size=0.75)
         
     def on_key_down(self) -> None:
+        self.set_center_label(str(self.value), font_size=30)
+        randomLetter = random.choice(string.ascii_letters)
+
+        settings = self.get_settings()
+        settings["value"] = randomLetter
+        self.set_settings(settings)
         print("Key down")
     
     def on_key_up(self) -> None:
