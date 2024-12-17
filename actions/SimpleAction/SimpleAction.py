@@ -28,6 +28,8 @@ class SimpleAction(ActionBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        self.backend = backend
+
         # backend_path = os.path.join(self.plugin_base.PATH, "actions", "counter", "backend", "backend.py") 
         # self.launch_backend(backend_path=backend_path, open_in_terminal=True)
 
