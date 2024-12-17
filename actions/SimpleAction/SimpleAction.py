@@ -20,6 +20,7 @@ class SimpleAction(ActionBase):
         super().__init__(*args, **kwargs)
 
         self.value = 0
+        self.key_down_time: int = 0
         
     def on_ready(self) -> None:
         settings = self.get_settings()
