@@ -20,8 +20,14 @@ class SimpleAction(ActionBase):
         super().__init__(*args, **kwargs)
         
     def on_ready(self) -> None:
-        icon_path = os.path.join(self.plugin_base.PATH, "assets", "info.png")
-        self.set_media(media_path=icon_path, size=0.75)
+        #icon_path = os.path.join(self.plugin_base.PATH, "assets", "info.png")
+        #self.set_media(media_path=icon_path, size=0.75)
+        self.set_center_label(str(self.value), font_size=30)
+        randomLetter = random.choice(string.ascii_letters)
+
+        settings = self.get_settings()
+        settings["value"] = randomLetter
+        self.set_settings(settings)
         
     def on_key_down(self) -> None:
         self.set_center_label(str(self.value), font_size=30)
