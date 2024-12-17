@@ -31,6 +31,8 @@ class SimpleAction(ActionBase):
         backend_path = os.path.join(self.plugin_base.PATH, "actions", "counter", "backend", "backend.py") 
         self.launch_backend(backend_path=backend_path, open_in_terminal=True)
 
+        self.letter = "abc"
+
 
         
     def on_ready(self) -> None:
