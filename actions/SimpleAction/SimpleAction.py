@@ -18,6 +18,8 @@ from gi.repository import Gtk, Adw
 class SimpleAction(ActionBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        self.value = 0
         
     def on_ready(self) -> None:
         settings = self.get_settings()
@@ -25,7 +27,7 @@ class SimpleAction(ActionBase):
             self.value = settings.get("value", 6)
 
         self.show_value()
-        self.key_down_time: int = 5
+        self.key_down_time: int = 0
         
     def on_key_down(self) -> None:
         self.set_center_label(str(self.value), font_size=30)
@@ -38,3 +40,10 @@ class SimpleAction(ActionBase):
     
     def on_key_up(self) -> None:
         print("Key up")
+
+    def show_value(self) -> None:
+        self.set_center_label(str(self.value), font_size=30)
+
+        settings = self.get_settings()
+        settings["value"] = self.value
+        self.set_settings(settings)
