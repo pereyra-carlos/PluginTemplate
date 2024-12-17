@@ -25,7 +25,7 @@ class SimpleAction(ActionBase):
     #     self.value = 0
     #     self.key_down_time: int = 0
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self,backend, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         backend_path = os.path.join(self.plugin_base.PATH, "actions", "counter", "backend", "backend.py") 
@@ -33,21 +33,20 @@ class SimpleAction(ActionBase):
 
         self.letter = "abc"
 
+        self.backend = backend
+        self.key_down_time = 0
+
 
         
     def on_ready(self):
-        #settings = self.get_settings()
-        # if settings.get("restore", True):
-        #     self.value = settings.get("value", 6)
-
-        # self.show_value()
-        # self.key_down_time: int = 0
         try:
-            self.set_center_label(str(self.backend.get_letter()))
+            count = str(self.plugin_base.backend.get_count())
         except Exception as e:
             log.error(e)
             self.show_error()
             return
+
+        self.set_center_label(count)
         
         
         

@@ -5,11 +5,17 @@ from src.backend.PluginManager.ActionHolder import ActionHolder
 # Import actions
 from .actions.SimpleAction.SimpleAction import SimpleAction
 
+
+
 import os
 
 class PluginTemplate(PluginBase):
     def __init__(self):
         super().__init__()
+
+        ## Launch backend
+        backend_path = os.path.join(self.PATH, "backend", "backend.py") 
+        self.launch_backend(backend_path=backend_path, open_in_terminal=True) 
 
         ## Register actions
         self.simple_action_holder = ActionHolder(
