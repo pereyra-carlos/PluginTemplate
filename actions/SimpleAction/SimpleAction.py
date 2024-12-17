@@ -37,6 +37,8 @@ class SimpleAction(ActionBase):
             self.show_error()
             return
         
+        self.set_center_label(count)
+        
     # def on_key_down(self) -> None:
     #     self.set_center_label(str(self.value), font_size=30)
     #     randomLetter = random.choice(string.ascii_letters)
@@ -80,6 +82,14 @@ class SimpleAction(ActionBase):
         
     #     self.show_value()
         
-    def get_count(self):
-        return self.backend.get_count()
+    def on_key_down(self):
+        try:
+            self.plugin_base.backend.increase_count()
+            count = str(self.plugin_base.backend.get_count())
+        except Exception as e:
+            log.error(e)
+            self.show_error()
+            return
+
+        self.set_center_label(count)
     
