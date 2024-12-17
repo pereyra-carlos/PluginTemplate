@@ -96,5 +96,5 @@ class SimpleAction(ActionBase):
             return
         time.sleep(20)
         self.set_center_label("Done")
-        #self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "Thumbnail1.png"))
+        self.set_media()
     
