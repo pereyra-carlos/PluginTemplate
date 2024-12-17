@@ -9,11 +9,11 @@ class Backend(BackendBase):
 
         self.letter: str = "XYZ"
 
-    def get_letter(self) -> int:
+    def get_letter(self) -> str:
         return self.letter
 
     def random_letter(self) -> None:
         self.letter = random.choice(string.ascii_letters) 
-        
+
 
 backend = Backend()
