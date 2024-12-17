@@ -35,7 +35,7 @@ class SimpleAction(ActionBase):
 
 
         
-    def on_ready(self) -> None:
+    def on_ready(self):
         #settings = self.get_settings()
         # if settings.get("restore", True):
         #     self.value = settings.get("value", 6)
@@ -43,15 +43,13 @@ class SimpleAction(ActionBase):
         # self.show_value()
         # self.key_down_time: int = 0
         try:
-            self.letter = str(self.backend.get_letter())
+            self.set_center_label(str(self.backend.get_letter()))
         except Exception as e:
             log.error(e)
             self.show_error()
             return
-        # self.value = letter
-        # self.show_value()
-        # self.key_down_time: int = 0
-        self.set_center_label(self.letter)
+        
+        
         
     # def on_key_down(self) -> None:
     #     self.set_center_label(str(self.value), font_size=30)
