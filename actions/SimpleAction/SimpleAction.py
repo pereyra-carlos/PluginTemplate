@@ -6,6 +6,7 @@ from src.backend.PluginManager.PluginBase import PluginBase
 
 # Import python modules
 import os
+from loguru import logger as log 
 import string
 import random
 
@@ -39,7 +40,14 @@ class SimpleAction(ActionBase):
 
         # self.show_value()
         # self.key_down_time: int = 0
-        self.set_center_label(str(self.backend.random_letter()))
+        try:
+            letter = self.backend.random_letter()
+        except Exception as e:
+            log.error(e)
+            self.show_error()
+            return
+
+        self.set_center_label(letter)
         
     def on_key_down(self) -> None:
         self.set_center_label(str(self.value), font_size=30)
@@ -64,7 +72,7 @@ class SimpleAction(ActionBase):
         # self.show_value()
 
         # print("Key down")
-        self.set_center_label("Pass:" + str(self.backend.random_letter()))
+        self.set_center_label(str(self.backend.random_letter()))
 
     def show_value(self) -> None:
         self.set_center_label(str(self.value), font_size=30)
