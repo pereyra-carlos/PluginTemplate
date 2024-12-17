@@ -44,8 +44,10 @@ class SimpleAction(ActionBase):
             log.error(e)
             self.show_error()
             return
-
-        self.set_center_label(letter)
+        self.value = letter
+        self.show_value()
+        self.key_down_time: int = 0
+        #self.set_center_label(letter)
         
     def on_key_down(self) -> None:
         self.set_center_label(str(self.value), font_size=30)
