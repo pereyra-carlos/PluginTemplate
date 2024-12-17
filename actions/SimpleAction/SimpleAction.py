@@ -27,23 +27,14 @@ class SimpleAction(ActionBase):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.current_state = -1
 
-        self.backend = backend
-
-        # backend_path = os.path.join(self.plugin_base.PATH, "actions", "counter", "backend", "backend.py") 
-        # self.launch_backend(backend_path=backend_path, open_in_terminal=True)
-
-        # self.letter = "abc"
-        
     def on_ready(self):
-        try:
-            count = str(self.plugin_base.backend.get_count().set("1"))
-        except Exception as e:
-            log.error(e)
-            self.show_error()
-            return
-
-        self.set_center_label(count)
+        self.current_state = -1
+        # Connect to obs if not connected
+        if self.plugin_base.backend is not None:
+            self.plugin_base.get_count():            # self.plugin_base.obs.connect_to(host="localhost", port=4444, timeout=3, legacy=False)
+                
         
         
         
@@ -89,3 +80,7 @@ class SimpleAction(ActionBase):
     #     self.set_settings(settings)
         
     #     self.show_value()
+        
+    def get_count(self):
+        return self.backend.get_count()
+    
