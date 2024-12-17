@@ -27,13 +27,15 @@ class SimpleAction(ActionBase):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.current_state = -1
+        
 
     def on_ready(self):
-        self.current_state = -1
-        
-        if self.plugin_base.backend is not None:
-            self.plugin_base.get_count()
+        try:
+            count = str(self.backend.get_count())
+        except Exception as e:
+            log.error(e)
+            self.show_error()
+            return
         
     # def on_key_down(self) -> None:
     #     self.set_center_label(str(self.value), font_size=30)
