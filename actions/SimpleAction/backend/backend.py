@@ -1,5 +1,6 @@
 from streamcontroller_plugin_tools import BackendBase 
 
+import os
 import string
 import random
 
@@ -7,12 +8,12 @@ class Backend(BackendBase):
     def __init__(self):
         super().__init__()
 
-        self.letter: str = "XYZ"
+        self.letter = "XYZ"
 
-    def get_letter(self) -> str:
+    def get_letter(self):
         return self.letter
 
-    def random_letter(self) -> None:
+    def random_letter(self):
         self.letter = random.choice(string.ascii_letters) 
 
 
