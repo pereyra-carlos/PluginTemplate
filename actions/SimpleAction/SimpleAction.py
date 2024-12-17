@@ -31,13 +31,13 @@ class SimpleAction(ActionBase):
 
     def on_ready(self):
         try:
-            count = str(self.plugin_base.backend.get_count())
+            letter = str(self.plugin_base.backend.get_letter())
         except Exception as e:
             log.error(e)
             self.show_error()
             return
         
-        self.set_center_label(count)
+        self.set_center_label(letter)
         
     # def on_key_down(self) -> None:
     #     self.set_center_label(str(self.value), font_size=30)
@@ -84,12 +84,12 @@ class SimpleAction(ActionBase):
         
     def on_key_down(self):
         try:
-            self.plugin_base.backend.increase_count()
-            count = str(self.plugin_base.backend.get_count())
+            self.plugin_base.backend.random_letter()
+            letter = str(self.plugin_base.backend.get_letter())
         except Exception as e:
             log.error(e)
             self.show_error()
             return
 
-        self.set_center_label(count)
+        self.set_center_label(letter)
     
