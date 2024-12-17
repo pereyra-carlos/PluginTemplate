@@ -31,7 +31,7 @@ class SimpleAction(ActionBase):
 
     def on_ready(self):
         try:
-            count = str(self.backend.get_count(self))
+            count = str(self.plugin_base.backend.get_count())
         except Exception as e:
             log.error(e)
             self.show_error()
@@ -85,7 +85,7 @@ class SimpleAction(ActionBase):
     def on_key_down(self):
         try:
             self.plugin_base.backend.increase_count()
-            count = str(self.plugin_base.backend.get_count(self))
+            count = str(self.plugin_base.backend.get_count())
         except Exception as e:
             log.error(e)
             self.show_error()

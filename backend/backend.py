@@ -9,7 +9,7 @@ class Backend(BackendBase):
     def get_count(self) -> int:
         return self.counter
 
-    def increase_count(self) -> int:
+    def increase_count(self) -> None:
         self.counter += 1
 
 backend = Backend()
