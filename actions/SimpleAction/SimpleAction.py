@@ -7,6 +7,8 @@ from src.backend.PluginManager.PluginBase import PluginBase
 # Import python modules
 import os
 from loguru import logger as log 
+import time
+
 import string
 import random
 
@@ -90,7 +92,7 @@ class SimpleAction(ActionBase):
             log.error(e)
             self.show_error()
             return
-
+        time.sleep(20)
         self.set_center_label(letter)
         self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "Thumbnail1.png"))
     
