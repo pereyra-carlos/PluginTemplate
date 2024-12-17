@@ -22,7 +22,7 @@ class SimpleAction(ActionBase):
     def on_ready(self) -> None:
         settings = self.get_settings()
         if settings.get("restore", True):
-            self.value = settings.get("value", 0)
+            self.value = settings.get("value", 6)
 
         self.show_value()
         self.key_down_time: int = 5
