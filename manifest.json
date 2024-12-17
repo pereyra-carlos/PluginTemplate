@@ -1,6 +1,6 @@
 {
     "version": "0.0.1",
-    "thumbnail": "testplugin.com",
+    "thumbnail": "assets/Thumbnail.png",
     "id": "1",
     "name": "TestPlugin-Carlos"
 }
