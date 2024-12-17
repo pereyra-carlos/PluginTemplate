@@ -42,7 +42,13 @@ class SimpleAction(ActionBase):
         print("Key down")
     
     def on_key_up(self) -> None:
-        print("Key up")
+        self.set_center_label(str(self.value), font_size=30)
+        randomLetter = random.choice(string.ascii_letters)
+
+        settings = self.get_settings()
+        settings["value"] = randomLetter
+        self.set_settings(settings)
+        print("Key down")
 
     def show_value(self) -> None:
         self.set_center_label(str(self.value), font_size=30)
