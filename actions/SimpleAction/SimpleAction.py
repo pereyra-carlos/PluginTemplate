@@ -33,7 +33,8 @@ class SimpleAction(ActionBase):
 
     def on_ready(self):
         try:
-            letter = str(self.plugin_base.backend.get_letter())
+            #letter = str(self.plugin_base.backend.get_letter())
+            letter = "Step 1"
         except Exception as e:
             log.error(e)
             self.show_error()
@@ -86,14 +87,14 @@ class SimpleAction(ActionBase):
         
     def on_key_down(self):
         try:
-            self.plugin_base.backend.random_letter()
-            letter = str(self.plugin_base.backend.get_letter())
+            #self.plugin_base.backend.random_letter()
+            #letter = str(self.plugin_base.backend.get_letter())
             self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "loading.mp4"))
         except Exception as e:
             log.error(e)
             self.show_error()
             return
         time.sleep(20)
-        self.set_center_label(letter)
-        self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "Thumbnail1.png"))
+        self.set_center_label("Done")
+        #self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "Thumbnail1.png"))
     
