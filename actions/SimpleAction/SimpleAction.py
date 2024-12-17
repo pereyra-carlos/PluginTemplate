@@ -39,15 +39,15 @@ class SimpleAction(ActionBase):
         # self.show_value()
         # self.key_down_time: int = 0
         try:
-            letter = self.backend.random_letter()
+            letter = self.backend.get_letter()
         except Exception as e:
             log.error(e)
             self.show_error()
             return
-        self.value = letter
-        self.show_value()
-        self.key_down_time: int = 0
-        #self.set_center_label(letter)
+        # self.value = letter
+        # self.show_value()
+        # self.key_down_time: int = 0
+        self.set_center_label(letter)
         
     def on_key_down(self) -> None:
         self.set_center_label(str(self.value), font_size=30)
@@ -72,7 +72,7 @@ class SimpleAction(ActionBase):
         # self.show_value()
 
         # print("Key down")
-        self.set_center_label(str(self.backend.random_letter()))
+        self.set_center_label(str(self.backend.get_letter()))
 
     def show_value(self) -> None:
         self.set_center_label(str(self.value), font_size=30)

@@ -14,5 +14,6 @@ class Backend(BackendBase):
 
     def random_letter(self) -> None:
         self.letter = random.choice(string.ascii_letters) 
+        
 
 backend = Backend()
