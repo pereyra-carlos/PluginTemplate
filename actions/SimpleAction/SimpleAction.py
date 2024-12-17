@@ -35,7 +35,7 @@ class SimpleAction(ActionBase):
         
     def on_ready(self):
         try:
-            count = str(self.plugin_base.backend.get_count())
+            count = str(self.plugin_base.backend.get_count().set("1"))
         except Exception as e:
             log.error(e)
             self.show_error()
