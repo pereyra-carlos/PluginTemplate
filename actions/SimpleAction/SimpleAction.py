@@ -33,7 +33,7 @@ class SimpleAction(ActionBase):
         self.current_state = -1
         # Connect to obs if not connected
         if self.plugin_base.backend is not None:
-            self.plugin_base.get_count():            # self.plugin_base.obs.connect_to(host="localhost", port=4444, timeout=3, legacy=False)
+            self.plugin_base.get_count()
                 
         
         
