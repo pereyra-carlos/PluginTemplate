@@ -32,7 +32,7 @@ class SimpleAction(ActionBase):
         self.launch_backend(backend_path=backend_path, open_in_terminal=True)
         
     def on_ready(self) -> None:
-        # settings = self.get_settings()
+        settings = self.get_settings()
         # if settings.get("restore", True):
         #     self.value = settings.get("value", 6)
 
