@@ -39,6 +39,9 @@ class SimpleAction(ActionBase):
         settings = self.get_settings()
         settings["value"] = randomLetter
         self.set_settings(settings)
+        self.value = randomLetter
+        self.show_value()
+
         print("Key down")
     
     def on_key_up(self) -> None:
@@ -47,7 +50,10 @@ class SimpleAction(ActionBase):
 
         settings = self.get_settings()
         settings["value"] = randomLetter
+        self.value = randomLetter
         self.set_settings(settings)
+        self.show_value()
+        
         print("Key down")
 
     def show_value(self) -> None:
