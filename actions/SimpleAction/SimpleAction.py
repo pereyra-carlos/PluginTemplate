@@ -25,18 +25,13 @@ class SimpleAction(ActionBase):
     #     self.value = 0
     #     self.key_down_time: int = 0
 
-    def __init__(self,backend, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        backend_path = os.path.join(self.plugin_base.PATH, "actions", "counter", "backend", "backend.py") 
-        self.launch_backend(backend_path=backend_path, open_in_terminal=True)
+        # backend_path = os.path.join(self.plugin_base.PATH, "actions", "counter", "backend", "backend.py") 
+        # self.launch_backend(backend_path=backend_path, open_in_terminal=True)
 
-        self.letter = "abc"
-
-        self.backend = backend
-        self.key_down_time = 0
-
-
+        # self.letter = "abc"
         
     def on_ready(self):
         try:
