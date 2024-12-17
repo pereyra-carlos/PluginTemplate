@@ -11,6 +11,7 @@ class Backend(BackendBase):
         self.letter = "XYZ"
 
     def get_letter(self):
+        self.letter = random.choice(string.ascii_letters) 
         return self.letter
 
     def random_letter(self):
