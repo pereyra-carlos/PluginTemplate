@@ -47,3 +47,14 @@ class SimpleAction(ActionBase):
         settings = self.get_settings()
         settings["value"] = self.value
         self.set_settings(settings)
+
+    def on_long_press(self):
+        settings = self.get_settings()
+        self.set_center_label(str(self.value), font_size=30)
+        randomLetter = random.choice(string.ascii_letters)
+
+        settings = self.get_settings()
+        settings["value"] = randomLetter
+        self.set_settings(settings)
+        
+        self.show_value()
