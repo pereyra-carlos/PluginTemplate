@@ -5,6 +5,8 @@ from src.backend.PluginManager.ActionHolder import ActionHolder
 # Import actions
 from .actions.SimpleAction.SimpleAction import SimpleAction
 
+import os
+
 class PluginTemplate(PluginBase):
     def __init__(self):
         super().__init__()
