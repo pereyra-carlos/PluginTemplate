@@ -21,7 +21,7 @@ class PluginTemplate(PluginBase):
         # Register plugin
         self.register(
             plugin_name = "Template",
-            github_repo = "https://github.com/StreamController/PluginTemplate",
+            github_repo = "https://github.com/pereyra-carlos/PluginTemplate",
             plugin_version = "1.0.0",
             app_version = "1.1.1-alpha"
         )
