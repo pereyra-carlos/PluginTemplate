@@ -47,8 +47,7 @@ def ejecutar_job_en_jenkins():
 
     # Llamada a la API de Jenkins para iniciar el build
     #response = requests.post(build_url, auth=auth, params=params, headers=headers)
-    response.status_code = 201
-
+    return 201
     
     if response.status_code == 201:
         print("El job se ha disparado correctamente en Jenkins.")
