@@ -1,10 +1,5 @@
 from streamcontroller_plugin_tools import BackendBase
 
-import sys
-
-# Añade la ruta del directorio donde se encuentra run_jenkins_job.py
-sys.path.append("/home/carlos/Trabajo/Magiis/tickets/exec-jenkins-job-magiis/run_jenkins_job.py")
-
 import run_jenkins_job
 
 import string
