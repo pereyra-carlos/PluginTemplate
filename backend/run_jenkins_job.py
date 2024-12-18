@@ -42,12 +42,14 @@ def ejecutar_job_en_jenkins():
     
     # Es recomendable solicitar el crumb de Jenkins para CSRF si tu Jenkins lo requiere
     # Obtención del crumb
+    print("1")
     crumb_issuer_url = f"{JENKINS_URL}/crumbIssuer/api/json"
+    print("2")
     crumb_data = requests.get(crumb_issuer_url, auth=auth).json()
     headers = {
         crumb_data['crumbRequestField']: crumb_data['crumb']
     }
-
+    print("3")
     # Llamada a la API de Jenkins para iniciar el build
     #response = requests.post(build_url, auth=auth, params=params, headers=headers)
     return 201
