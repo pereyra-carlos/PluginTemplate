@@ -21,7 +21,7 @@ def obtener_version_desde_popup():
     # Solicita la versión al usuario
     version = simpledialog.askstring("Ingresar Versión", "Por favor, ingresa la versión:")
     
-    root.destroy()  # Destruir la ventana una vez obtenida la versión
+    #root.destroy()  # Destruir la ventana una vez obtenida la versión
     return version
 
 def ejecutar_job_en_jenkins():
