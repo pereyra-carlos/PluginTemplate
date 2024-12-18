@@ -27,9 +27,12 @@ def obtener_version_desde_popup():
 def ejecutar_job_en_jenkins():
     version = obtener_version_desde_popup()
     print(version)
-    return 201
     # URL para lanzar el job con parámetros
     build_url = f"{JENKINS_URL}/job/{JOB_NAME}/buildWithParameters"
+
+    print(build_url)
+    return "201"
+
     
     # Parámetros a enviar (dict)
     params = {
