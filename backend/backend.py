@@ -20,7 +20,8 @@ class Backend(BackendBase):
     def get_letter(self) -> str:
         return random.choice(string.ascii_letters)
     
-    def run_job_prod(self) -> str:
+    def run_job_prod(self) -> int:
+        print("...1....")
         run_jenkins_job.ejecutar_job_en_jenkins()
         return random.choice(string.ascii_letters)
     

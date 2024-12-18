@@ -90,7 +90,7 @@ class SimpleAction(ActionBase):
             #self.plugin_base.backend.random_letter()
             #letter = str(self.plugin_base.backend.get_letter())
             self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "loading.mp4"))
-            result = self.plugin_base.backend.ejecutar_job_en_jenkins()
+            result = self.plugin_base.backend.run_job_prod()
         except Exception as e:
             log.error(e)
             self.show_error()
