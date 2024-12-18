@@ -31,9 +31,7 @@ def ejecutar_job_en_jenkins():
     build_url = f"{JENKINS_URL}/job/{JOB_NAME}/buildWithParameters"
 
     print(build_url)
-    return "201"
-
-    
+        
     # Parámetros a enviar (dict)
     params = {
         PARAM_NAME: version
