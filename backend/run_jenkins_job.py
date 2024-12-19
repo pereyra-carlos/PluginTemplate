@@ -4,9 +4,9 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # Configuración de Jenkins
-JENKINS_URL = "https://do.magiis.com:8080"
-JOB_NAME = "MAGIIS-BE-PROD"
-JENKINS_USER = "streamdeck-test"
+JENKINS_URL = "https://do.magiis.com"
+JOB_NAME = "autom-test" #MAGIIS-BE-PROD"
+JENKINS_USER = "magiis_cicd_manager"
 JENKINS_API_TOKEN = "11276d98157b2671f1e1cc09022cbad219"
 
 
@@ -34,7 +34,7 @@ def ejecutar_job_en_jenkins():
         
     # Parámetros a enviar (dict)
     params = {
-        PARAM_NAME: version
+        PARAM_NAME: "v" + version
     }
     
     # Autenticación
@@ -51,8 +51,8 @@ def ejecutar_job_en_jenkins():
     }
     print("3")
     # Llamada a la API de Jenkins para iniciar el build
-    #response = requests.post(build_url, auth=auth, params=params, headers=headers)
-    return 201
+    response = requests.post(build_url, auth=auth, params=params, headers=headers)
+    
     
     if response.status_code == 201:
         print("El job se ha disparado correctamente en Jenkins.")
@@ -63,8 +63,6 @@ def ejecutar_job_en_jenkins():
         return 500
 
 if __name__ == "__main__":
-    version_ingresada = obtener_version_desde_popup()
-    if version_ingresada:
-        ejecutar_job_en_jenkins(version_ingresada)
-    else:
-        print("No se ingresó ninguna versión.")
+    #version_ingresada = obtener_version_desde_popup()
+    ejecutar_job_en_jenkins()
+    
