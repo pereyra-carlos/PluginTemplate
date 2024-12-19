@@ -2,6 +2,7 @@ from streamcontroller_plugin_tools import BackendBase
 
 #import run_jenkins_job
 import run_job_and_wait
+import time
 
 import string
 import random
@@ -24,6 +25,7 @@ class Backend(BackendBase):
         time.sleep(5)
         yield "b"
         return run_job_and_wait.ejecutar_job_completo
+    
         #for estado in ejecutar_job_completo():
         #    print(estado)
     
