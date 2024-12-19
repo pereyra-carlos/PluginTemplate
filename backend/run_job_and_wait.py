@@ -1,6 +1,9 @@
 import time
+import tkinter as tk
+from tkinter import simpledialog
 import requests
 from requests.auth import HTTPBasicAuth
+
 
 JENKINS_URL = "https://do.magiis.com"
 JOB_NAME = "autom-test"
@@ -37,7 +40,7 @@ def disparar_job(version):
     if response.status_code == 201:
         # Jenkins devuelve en la cabecera Location la URL del ítem en la cola
         queue_url = response.headers.get('Location')
-        print("Job disparado correctamente. Monitoreando la cola...")
+        #print("Job disparado correctamente. Monitoreando la cola...")
         return queue_url
     else:
         print(f"Error al disparar el job: {response.status_code}")
@@ -53,7 +56,7 @@ def obtener_build_number(queue_url, auth):
             data = r.json()
             if 'executable' in data and data['executable'] is not None:
                 build_number = data['executable']['number']
-                print(f"Job asignado a build #{build_number}")
+                #print(f"Job asignado a build #{build_number}")
                 return build_number
             else:
                 print("Esperando a que el ítem salga de la cola...")
@@ -70,7 +73,7 @@ def monitorear_build(build_number, auth):
             data = r.json()
             # result será None mientras el job esté corriendo
             if data['result'] is not None:
-                print(f"Build finalizado con estado: {data['result']}")
+                #print(f"Build finalizado con estado: {data['result']}")
                 return data['result']
             else:
                 print("Build en progreso...")
@@ -83,14 +86,21 @@ def ejecutar_job_completo():
     auth = HTTPBasicAuth(JENKINS_USER, JENKINS_API_TOKEN)
     queue_url = disparar_job(version)
     if queue_url:
+        yield "Encolado"
         build_number = obtener_build_number(queue_url, auth)
         if build_number:
+            yield str("#" + build_number)
             result = monitorear_build(build_number, auth)
-            print("Resultado final del build:", result)
+            yield str(result)
+            #print("Resultado final del build:", result)
 
 # Ejemplo de uso
 if __name__ == "__main__":
     # Aquí podrías obtener la versión desde el popup
     # version = obtener_version_desde_popup()
     #version = "1.2.3"
-    ejecutar_job_completo()
+    
+    #ejecutar_job_completo()
+    for estado in ejecutar_job_completo():
+        print(estado)
+        
