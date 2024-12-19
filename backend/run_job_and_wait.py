@@ -89,7 +89,7 @@ def ejecutar_job_completo():
         yield "Encolado"
         build_number = obtener_build_number(queue_url, auth)
         if build_number:
-            yield str("#" + build_number)
+            yield "#" + str(build_number)
             result = monitorear_build(build_number, auth)
             yield str(result)
             #print("Resultado final del build:", result)
