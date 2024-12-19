@@ -93,7 +93,7 @@ class SimpleAction(ActionBase):
             #result = self.plugin_base.backend.run_job_prod()
 
             for state in self.plugin_base.backend.run_job_prod():
-                self.set_center_label(str(state), font_size=30)
+                self.set_center_label(str(state), font_size=20)
             
         except Exception as e:
             log.error(e)
