@@ -50,7 +50,7 @@ def obtener_build_number(queue_url, auth):
     # Ej: queue_url suele ser algo como: https://jenkins_url/queue/item/123/
     # Necesitamos hacer /api/json a ese endpoint
     while True:
-        time.sleep(5)
+        time.sleep(2)
         r = requests.get(queue_url + "api/json", auth=auth)
         if r.status_code == 200:
             data = r.json()
@@ -67,7 +67,7 @@ def obtener_build_number(queue_url, auth):
 def monitorear_build(build_number, auth):
     build_api_url = f"{JENKINS_URL}/job/{JOB_NAME}/{build_number}/api/json"
     while True:
-        time.sleep(10)
+        time.sleep(2)
         r = requests.get(build_api_url, auth=auth)
         if r.status_code == 200:
             data = r.json()
