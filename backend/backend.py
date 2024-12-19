@@ -22,12 +22,13 @@ class Backend(BackendBase):
         #return run_jenkins_job.ejecutar_job_en_jenkins()
         #return run_job_and_wait.ejecutar_job_completo
         
+        # Test parcial responses
         # yield "a"
         # time.sleep(5)
         # yield "b"
     
         for estado in run_job_and_wait.ejecutar_job_completo():
-            print(estado)
+            #print(estado)
             yield estado
     
 

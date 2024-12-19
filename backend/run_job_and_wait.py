@@ -93,6 +93,10 @@ def ejecutar_job_completo():
             result = monitorear_build(build_number, auth)
             yield str(result)
             #print("Resultado final del build:", result)
+        else:
+            yield "FAILURE"
+    else:
+        yield "FAILURE"
 
 # Ejemplo de uso
 if __name__ == "__main__":
