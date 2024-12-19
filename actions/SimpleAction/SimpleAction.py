@@ -89,12 +89,16 @@ class SimpleAction(ActionBase):
         try:
             #self.plugin_base.backend.random_letter()
             #letter = str(self.plugin_base.backend.get_letter())
-            self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "loading.mp4"))
-            result = self.plugin_base.backend.run_job_prod()
+            #self.set_media(media_path=os.path.join(self.plugin_base.PATH, "assets", "loading.mp4"))
+            #result = self.plugin_base.backend.run_job_prod()
+
+            for state in self.plugin_base.backend.run_job_prod():
+                self.set_center_label(str(state), font_size=30)
+            
         except Exception as e:
             log.error(e)
             self.show_error()
             return
-        self.set_center_label(result)
-        self.set_media()
+        #self.set_center_label(result)
+        #self.set_media()
     

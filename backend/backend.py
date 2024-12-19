@@ -24,7 +24,7 @@ class Backend(BackendBase):
         yield "a"
         time.sleep(5)
         yield "b"
-        return run_job_and_wait.ejecutar_job_completo
+        #return run_job_and_wait.ejecutar_job_completo
     
         #for estado in ejecutar_job_completo():
         #    print(estado)
