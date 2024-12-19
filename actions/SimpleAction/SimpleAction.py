@@ -95,9 +95,9 @@ class SimpleAction(ActionBase):
             for state in self.plugin_base.backend.run_job_prod():
                 self.set_center_label(str(state))
                 if state != "FAILURE" :
-                    self.set_background_color("#00FF00")
+                    self.set_background_color([0, 255, 0, 255])
                 else:
-                    self.set_background_color("#FF0000")
+                    self.set_background_color([255, 0, 0, 255])
             
         except Exception as e:
             log.error(e)
