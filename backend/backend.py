@@ -20,14 +20,15 @@ class Backend(BackendBase):
     def run_job_prod(self) -> str:
         #run_jenkins_job.ejecutar_job_en_jenkins()
         #return run_jenkins_job.ejecutar_job_en_jenkins()
-        
-        yield "a"
-        time.sleep(5)
-        yield "b"
         #return run_job_and_wait.ejecutar_job_completo
+        
+        # yield "a"
+        # time.sleep(5)
+        # yield "b"
     
-        #for estado in ejecutar_job_completo():
-        #    print(estado)
+        for estado in ejecutar_job_completo():
+            print(estado)
+            yield estado
     
 
     #def increase_count(self) -> None:
